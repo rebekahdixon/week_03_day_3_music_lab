@@ -2,6 +2,9 @@ require('pry')
 require_relative('../models/album')
 require_relative('../models/artist')
 
+Album.delete_all()
+Artist.delete_all()
+
 mummy = Artist.new({'name' => 'mummy'})
 
 mummy.save()
@@ -13,6 +16,12 @@ christmas = Album.new({'title' => 'christmas', 'genre' => 'festive', 'artist_id'
 
 halloween.save()
 christmas.save()
+
+halloween.title = 'scary_songs'
+halloween.update()
+
+mummy.name = 'vampire'
+mummy.update()
 
 Album.all_albums()
 Artist.all_artists()
